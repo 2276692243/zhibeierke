@@ -202,14 +202,14 @@
 		<a href="tel:020-31568992" class="phone_call">电话预约</a>
 		
 		<!--topNav start-->
-		<!--<div id="topNav">
+		<div id="topNav">
 			<ul id="myList">
 				<li class="active">诊所介绍</li>
 				<li>医生团队</li>
 				<li>会员套餐</li>
 				<div id="mvList"><span></span></div>
 			</ul>
-		</div>-->
+		</div>
 		<!--topNav end-->
 		
 		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
@@ -217,107 +217,107 @@
 		<script src="js/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			
-//			$(function(){
-//				var h2 = 0.7*scaler;
-//				var mySwiper = new Swiper ('.swiper-container', {
-//				    loop: true,	
-//				    autoplay : 4000,
-//				    autoplayDisableOnInteraction : false
-//				}) 
-//				var timer = null;
-//				var timer1 = null;
-//								
-//				window.onscroll = function(){
-//					
-//					var h1 = document.documentElement.scrollTop || document.body.scrollTop;
-//					
-//					
-//					$(".content").each(function(){
-//						if(getTop($(this)[0]) <= h1 + h2){
-//							if($(this).index(".content") <= $("#myList li").length-1){
-//								toShow($(this).index(".content"));
-//							}
-//							
-//						}
-//					})
-//					if(getTop($(".content").eq(0)[0]) >= h1 + h2){
-//						$("#topNav").hide();
-//					}
-//				}
-//				
-//				$("#myList li").on("touchstart",function(){
-//					scrollMove($(".content").eq($(this).index("#myList li"))[0]);
-//				})
-//				
-//				function toShow(index){
-//					clear();
-//					move(index);
-//					$("#myList li").eq(index).attr("class","active");
-//					$("#topNav").show();
-//				}
-//				
-//				function getTop(obj) {
-//					var t = 0,
-//						start = obj;
-//					while(obj) {
-//						if(obj == start) {
-//							t += obj.offsetTop;
-//							obj = obj.offsetParent;
-//						} else {
-//							t += obj.offsetTop + obj.clientTop;
-//							obj = obj.offsetParent;
-//						}
-//					}
-//					return t;
-//				}
-//				
-//				function clear() {
-//					$("#myList li").attr("class","");
-//				}
-//				function scrollMove(obj){
-//					var nowTop = getTop(obj) - h2;
-//					clearInterval(timer1);
-//					timer1 = setInterval(function(){
-//						var goTop = document.documentElement.scrollTop || document.body.scrollTop;
-//						if(nowTop < goTop){
-//							goTop -= 10;
-//							if(goTop <= nowTop){
-//								clearInterval(timer1);
-//								goTop = nowTop+2;
-//							}
-//						}else{
-//							goTop += 10;
-//							if(goTop >= nowTop){
-//								clearInterval(timer1);
-//								goTop = nowTop+2;
-//							}
-//						}
-//						document.documentElement.scrollTop = goTop;
-//						document.body.scrollTop = goTop;
-//					},1)
-//					
-//					
-//				}
-//				function move(n) {
-//					var s = 0,
-//						maxS = 50,
-//						begin = $("#mvList").offset().left;
-//						
-//					end = n * $("#myList li").eq(0).width();
-//						change = end - begin;
-//					clearInterval(timer);
-//					timer = setInterval(function() {
-//						s++;
-//						if(s >= maxS) {
-//							clearInterval(timer);
-//						}
-//						$("#mvList").css({
-//							left:Tween.Linear(s, begin, change, maxS) + "px"
-//						})
-//					}, 1);
-//				}
-//				
-//			})
+			$(function(){
+				var h2 = 0.7*scaler;
+				var mySwiper = new Swiper ('.swiper-container', {
+				    loop: true,	
+				    autoplay : 4000,
+				    autoplayDisableOnInteraction : false
+				}) 
+				var timer = null;
+				var timer1 = null;
+								
+				window.onscroll = function(){
+					
+					var h1 = document.documentElement.scrollTop || document.body.scrollTop;
+					
+					
+					$(".content").each(function(){
+						if(getTop($(this)[0]) <= h1 + h2){
+							if($(this).index(".content") <= $("#myList li").length-1){
+								toShow($(this).index(".content"));
+							}
+							
+						}
+					})
+					if(getTop($(".content").eq(0)[0]) >= h1 + h2){
+						$("#topNav").hide();
+					}
+				}
+				
+				$("#myList li").on("touchstart",function(){
+					scrollMove($(".content").eq($(this).index("#myList li"))[0]);
+				})
+				
+				function toShow(index){
+					clear();
+					move(index);
+					$("#myList li").eq(index).attr("class","active");
+					$("#topNav").show();
+				}
+				
+				function getTop(obj) {
+					var t = 0,
+						start = obj;
+					while(obj) {
+						if(obj == start) {
+							t += obj.offsetTop;
+							obj = obj.offsetParent;
+						} else {
+							t += obj.offsetTop + obj.clientTop;
+							obj = obj.offsetParent;
+						}
+					}
+					return t;
+				}
+				
+				function clear() {
+					$("#myList li").attr("class","");
+				}
+				function scrollMove(obj){
+					var nowTop = getTop(obj) - h2;
+					clearInterval(timer1);
+					timer1 = setInterval(function(){
+						var goTop = document.documentElement.scrollTop || document.body.scrollTop;
+						if(nowTop < goTop){
+							goTop -= 10;
+							if(goTop <= nowTop){
+								clearInterval(timer1);
+								goTop = nowTop+2;
+							}
+						}else{
+							goTop += 10;
+							if(goTop >= nowTop){
+								clearInterval(timer1);
+								goTop = nowTop+2;
+							}
+						}
+						document.documentElement.scrollTop = goTop;
+						document.body.scrollTop = goTop;
+					},1)
+					
+					
+				}
+				function move(n) {
+					var s = 0,
+						maxS = 50,
+						begin = $("#mvList").offset().left;
+						
+					end = n * $("#myList li").eq(0).width();
+						change = end - begin;
+					clearInterval(timer);
+					timer = setInterval(function() {
+						s++;
+						if(s >= maxS) {
+							clearInterval(timer);
+						}
+						$("#mvList").css({
+							left:Tween.Linear(s, begin, change, maxS) + "px"
+						})
+					}, 1);
+				}
+				
+			})
 		</script>
 	</body>
 </html>
