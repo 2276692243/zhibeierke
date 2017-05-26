@@ -2,21 +2,14 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>知贝儿科</title>
 		<script type="text/javascript">
 			var scaler;
 			(function (doc, win) {
 				
 		        var docEle = doc.documentElement,
-		                dpr=Math.min(win.devicePixelRatio, 3),
-		                scale = 1 / dpr,
-		
 		                resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize';
-		
-		        var metaEle = doc.createElement('meta');
-		        metaEle.name = 'viewport';
-		        metaEle.content = 'initial-scale=' + 1 + ',maximum-scale=' + scale;
-		        docEle.firstElementChild.appendChild(metaEle);
 		        var recalCulate = function () {
 		            var width = docEle.clientWidth;
 		            docEle.style.fontSize = 100 * (width / 375) + 'px';
@@ -236,7 +229,10 @@
 					
 					$(".content").each(function(){
 						if(getTop($(this)[0]) <= h1 + h2){
-							toShow($(this).index(".content"));
+							if($(this).index(".content") <= $("#myList li").length-1){
+								toShow($(this).index(".content"));
+							}
+							
 						}
 					})
 					if(getTop($(".content").eq(0)[0]) >= h1 + h2){
@@ -275,7 +271,7 @@
 				}
 				function scrollMove(obj){
 					var nowTop = getTop(obj) - h2;
-					
+					clearInterval(timer1);
 					timer1 = setInterval(function(){
 						var goTop = document.documentElement.scrollTop || document.body.scrollTop;
 						if(nowTop < goTop){
@@ -313,7 +309,7 @@
 						$("#mvList").css({
 							left:Tween.Linear(s, begin, change, maxS) + "px"
 						})
-					}, 10);
+					}, 1);
 				}
 				
 			})
