@@ -12,7 +12,7 @@
 		                resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize';
 		        var recalCulate = function () {
 		            var width = docEle.clientWidth;
-		            docEle.style.fontSize = 100 * (width / 375) + 'px';
+		            docEle.style.fontSize = 100 * (width / 750) + 'px';
 		           	scaler = 100 * (width / 496);
 		        };
 		
@@ -71,15 +71,14 @@
 						<div class="fl doctor_box">
 							<p class="doctor">
 								<span class="doctor_name">欧茜</span>
-								<span class="post_job">主治医生</span>
+								<span class="post_job">儿内科医生 从医12年</span>
 							</p>
 							<p class="illness">
 								<span>咳嗽</span>
 								<span>发烧</span>
 								<span>腹泻</span>
-								<span>咳嗽</span>
-								<span>发烧</span>
-								<span>腹泻</span>
+								<span>养育</span>
+								<span>黄痘</span>
 							</p>
 						</div>
 					</div>
@@ -90,16 +89,16 @@
 					<div class="fr">
 						<div class="fl doctor_box">
 							<p class="doctor">
-								<span class="doctor_name">欧茜</span>
-								<span class="post_job">主治医生</span>
+								<span class="doctor_name">刘欣</span>
+								<span class="post_job">皮肤科医生 从医17年</span>
 							</p>
 							<p class="illness">
-								<span>咳嗽</span>
-								<span>发烧</span>
-								<span>腹泻</span>
-								<span>咳嗽</span>
-								<span>发烧</span>
-								<span>腹泻</span>
+								<span>银屑病</span>
+								<span>&nbsp;&nbsp;胎记&nbsp;&nbsp;</span>
+								<span>湿疹</span>
+								<span>荨麻疹</span>
+								<span>白癜风</span>
+								<span>血管瘤</span>
 							</p>
 						</div>
 					</div>
@@ -110,13 +109,16 @@
 					<div class="fr">
 						<div class="fl doctor_box">
 							<p class="doctor">
-								<span class="doctor_name">欧茜</span>
-								<span class="post_job">主治医生</span>
+								<span class="doctor_name">肖彦</span>
+								<span class="post_job">儿内科医生 从医18年</span>
 							</p>
 							<p class="illness">
-								<span>咳嗽</span>
 								<span>发烧</span>
-								<span>腹泻</span>
+								<span>喂养</span>
+								<span>黄痘</span>
+								<span>川崎病</span>
+								<span>咳嗽</span>
+								<span style="margin-right: 0;">先天性心脏病</span>
 							</p>
 						</div>
 					</div>
@@ -127,13 +129,15 @@
 					<div class="fr">
 						<div class="fl doctor_box">
 							<p class="doctor">
-								<span class="doctor_name">欧茜</span>
-								<span class="post_job">主治医生</span>
+								<span class="doctor_name">王洁</span>
+								<span class="post_job">耳鼻喉科医师 从医18年</span>
 							</p>
 							<p class="illness">
-								<span>咳嗽</span>
-								<span>发烧</span>
-								<span>腹泻</span>
+								<span>鼻炎</span>
+								<span>鼻窦炎</span>
+								<span>中耳炎</span>
+								<span>过敏性鼻炎</span>
+								<span>呼吸道异物</span>
 							</p>
 						</div>
 					</div>
@@ -144,13 +148,15 @@
 					<div class="fr">
 						<div class="fl doctor_box">
 							<p class="doctor">
-								<span class="doctor_name">欧茜</span>
-								<span class="post_job">主治医生</span>
+								<span class="doctor_name">胡艳</span>
+								<span class="post_job">儿内科医生 从医10年</span>
 							</p>
 							<p class="illness">
-								<span>咳嗽</span>
-								<span>发烧</span>
 								<span>腹泻</span>
+								<span>便秘</span>
+								<span>营养不良</span>
+								<span>新生儿黄疸</span>
+								<span>支气管肺炎</span>
 							</p>
 						</div>
 					</div>
@@ -196,15 +202,14 @@
 		<div class="phone_call">电话预约</div>
 		
 		<!--topNav start-->
-		<div id="topNav">
+		<!--<div id="topNav">
 			<ul id="myList">
 				<li class="active">诊所介绍</li>
 				<li>医生团队</li>
 				<li>会员套餐</li>
-				<!--<li>常见问题</li>-->
 				<div id="mvList"><span></span></div>
 			</ul>
-		</div>
+		</div>-->
 		<!--topNav end-->
 		
 		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
@@ -212,107 +217,107 @@
 		<script src="js/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			
-			$(function(){
-				var h2 = 0.7*scaler;
-				var mySwiper = new Swiper ('.swiper-container', {
-				    loop: true,	
-				    autoplay : 4000,
-				    autoplayDisableOnInteraction : false
-				}) 
-				var timer = null;
-				var timer1 = null;
-								
-				window.onscroll = function(){
-					
-					var h1 = document.documentElement.scrollTop || document.body.scrollTop;
-					
-					
-					$(".content").each(function(){
-						if(getTop($(this)[0]) <= h1 + h2){
-							if($(this).index(".content") <= $("#myList li").length-1){
-								toShow($(this).index(".content"));
-							}
-							
-						}
-					})
-					if(getTop($(".content").eq(0)[0]) >= h1 + h2){
-						$("#topNav").hide();
-					}
-				}
-				
-				$("#myList li").on("touchstart",function(){
-					scrollMove($(".content").eq($(this).index("#myList li"))[0]);
-				})
-				
-				function toShow(index){
-					clear();
-					move(index);
-					$("#myList li").eq(index).attr("class","active");
-					$("#topNav").show();
-				}
-				
-				function getTop(obj) {
-					var t = 0,
-						start = obj;
-					while(obj) {
-						if(obj == start) {
-							t += obj.offsetTop;
-							obj = obj.offsetParent;
-						} else {
-							t += obj.offsetTop + obj.clientTop;
-							obj = obj.offsetParent;
-						}
-					}
-					return t;
-				}
-				
-				function clear() {
-					$("#myList li").attr("class","");
-				}
-				function scrollMove(obj){
-					var nowTop = getTop(obj) - h2;
-					clearInterval(timer1);
-					timer1 = setInterval(function(){
-						var goTop = document.documentElement.scrollTop || document.body.scrollTop;
-						if(nowTop < goTop){
-							goTop -= 10;
-							if(goTop <= nowTop){
-								clearInterval(timer1);
-								goTop = nowTop+2;
-							}
-						}else{
-							goTop += 10;
-							if(goTop >= nowTop){
-								clearInterval(timer1);
-								goTop = nowTop+2;
-							}
-						}
-						document.documentElement.scrollTop = goTop;
-						document.body.scrollTop = goTop;
-					},1)
-					
-					
-				}
-				function move(n) {
-					var s = 0,
-						maxS = 50,
-						begin = $("#mvList").offset().left;
-						
-					end = n * $("#myList li").eq(0).width();
-						change = end - begin;
-					clearInterval(timer);
-					timer = setInterval(function() {
-						s++;
-						if(s >= maxS) {
-							clearInterval(timer);
-						}
-						$("#mvList").css({
-							left:Tween.Linear(s, begin, change, maxS) + "px"
-						})
-					}, 1);
-				}
-				
-			})
+//			$(function(){
+//				var h2 = 0.7*scaler;
+//				var mySwiper = new Swiper ('.swiper-container', {
+//				    loop: true,	
+//				    autoplay : 4000,
+//				    autoplayDisableOnInteraction : false
+//				}) 
+//				var timer = null;
+//				var timer1 = null;
+//								
+//				window.onscroll = function(){
+//					
+//					var h1 = document.documentElement.scrollTop || document.body.scrollTop;
+//					
+//					
+//					$(".content").each(function(){
+//						if(getTop($(this)[0]) <= h1 + h2){
+//							if($(this).index(".content") <= $("#myList li").length-1){
+//								toShow($(this).index(".content"));
+//							}
+//							
+//						}
+//					})
+//					if(getTop($(".content").eq(0)[0]) >= h1 + h2){
+//						$("#topNav").hide();
+//					}
+//				}
+//				
+//				$("#myList li").on("touchstart",function(){
+//					scrollMove($(".content").eq($(this).index("#myList li"))[0]);
+//				})
+//				
+//				function toShow(index){
+//					clear();
+//					move(index);
+//					$("#myList li").eq(index).attr("class","active");
+//					$("#topNav").show();
+//				}
+//				
+//				function getTop(obj) {
+//					var t = 0,
+//						start = obj;
+//					while(obj) {
+//						if(obj == start) {
+//							t += obj.offsetTop;
+//							obj = obj.offsetParent;
+//						} else {
+//							t += obj.offsetTop + obj.clientTop;
+//							obj = obj.offsetParent;
+//						}
+//					}
+//					return t;
+//				}
+//				
+//				function clear() {
+//					$("#myList li").attr("class","");
+//				}
+//				function scrollMove(obj){
+//					var nowTop = getTop(obj) - h2;
+//					clearInterval(timer1);
+//					timer1 = setInterval(function(){
+//						var goTop = document.documentElement.scrollTop || document.body.scrollTop;
+//						if(nowTop < goTop){
+//							goTop -= 10;
+//							if(goTop <= nowTop){
+//								clearInterval(timer1);
+//								goTop = nowTop+2;
+//							}
+//						}else{
+//							goTop += 10;
+//							if(goTop >= nowTop){
+//								clearInterval(timer1);
+//								goTop = nowTop+2;
+//							}
+//						}
+//						document.documentElement.scrollTop = goTop;
+//						document.body.scrollTop = goTop;
+//					},1)
+//					
+//					
+//				}
+//				function move(n) {
+//					var s = 0,
+//						maxS = 50,
+//						begin = $("#mvList").offset().left;
+//						
+//					end = n * $("#myList li").eq(0).width();
+//						change = end - begin;
+//					clearInterval(timer);
+//					timer = setInterval(function() {
+//						s++;
+//						if(s >= maxS) {
+//							clearInterval(timer);
+//						}
+//						$("#mvList").css({
+//							left:Tween.Linear(s, begin, change, maxS) + "px"
+//						})
+//					}, 1);
+//				}
+//				
+//			})
 		</script>
 	</body>
 </html>
